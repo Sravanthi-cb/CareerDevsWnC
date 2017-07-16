@@ -1,10 +1,8 @@
 var todoList = {
-   todos: ['item 1', 'item 2', 'item 3'],
+   todos: [],
    displayTodos: function() {
-   console.log('My Todos', this.todos);
+   console.log('My Todos:');
    for(var i = 0; i < this.todos.length; i++ ) {
-    //this.todos.length has 3 items
-	// i=0 // i=1 // i=2
 	console.log(this.todos[i].todoText);
    }
  
@@ -26,6 +24,6 @@ var todoList = {
 }  
 };
 
-todoList.displayTodos();
+
 todoList.addTodo('first');
 todoList.addTodo('second');
