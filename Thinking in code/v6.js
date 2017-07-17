@@ -46,19 +46,26 @@ var todoList = {
 	   completedTodos++;
 	} 
    }
-   // Case 1: If everything true, make everything false;
+ // Case 1: If everything true, make everything false;
    if(completedTodos === totalTodos) {
    // Make everything false. 
      for(var i=0; i <totalTodos; i++) {
 	   this.todos[i].completed = false;
 	 }
    } 
-
+// Case 2: toogleAll: Otherwise, make everything true; 
+   else {
+    for(var i=0; i <totalTodos; i++) {
+	   this.todos[i].completed = true;
+	 }
+   }
+    this.displayTodos();
  }
 };
 todoList.addTodo('first');
 todoList.addTodo('second');
-todoList.toggleCompleted(0);
-todoList.toggleCompleted(1);
+todoList.addTodo('third');
 todoList.toggleAll();
-todoList.displayTodos();
+todoList.toggleAll();
+todoList.toggleCompleted(0);
+todoList.toggleAll();
