@@ -23,14 +23,14 @@ var todoList = {
 	});
    this.displayTodos();
   },
-  changeTodo: function(position, newValue){
-    this.todos[position] =  newValue;
+  changeTodo: function(position, todoText){
+    this.todos[position].todoText =  todoText;
     this.displayTodos();
 },
   deleteTodo: function(position){
     this.todos.splice(position, 1);
     this.displayTodos();
-} ,
+},
  toggleCompleted: function(position){
   var todo = this.todos[position];
   todo.completed = !todo.completed;
@@ -68,8 +68,33 @@ var handlers = {
   displayTodos: function() {
    todoList.displayTodos();
   },
-
-  toggleAll: function(){
+  // It should have working controls for .addTodo
+  addTodo: function() {
+   var addTodoTextInput = document.getElementById('addTodoTextInput');
+   todoList.addTodo(addTodoTextInput.value);
+   addTodoTextInput.value = '';
+},
+// It should have working controls for .changeTodo
+  changeTodo: function() {
+    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    changeTodoPositionInput.value = '';
+  changeTodoTextInput.value = '';  
+},
+// It should have working controls for .deleteTodo
+    deleteTodo: function() {
+    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = '';
+},
+// It should have working controls for .toggleCompleted
+    toggleCompleted: function() {
+    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    toggleCompletedPositionInput.value = '';
+},
+   toggleAll: function(){
     todoList.toggleAll();
   }
 };
