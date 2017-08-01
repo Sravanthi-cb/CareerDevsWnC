@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+
+  <body>
+    <h1>Todo List</h1>
+    
+    <div>
+    <button onclick="handlers.toggleAll()">Toggle All</button>
+    </div>
+<!-- It should have working controls for .addTodo -->    
+    <div>
+	<button onclick="handlers.addTodo()">Add</button>
+	<input id="addTodoTextInput" type="text">
+    </div>
+    
+<!-- It should have working controls for .changeTodo -->
+   <div>
+  <button onclick="handlers.changeTodo()">Change Todo</button>
+  <input id="changeTodoPositionInput" type="number">
+  <input id="changeTodoTextInput" type="text">
+  </div>
+  
+ 
+<!-- It should have working controls for .toggleCompleted -->
+    <div>
+     <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+     <input id="toggleCompletedPositionInput" type="number">
+    </div>  
+    
+    <ul>
+	</ul>
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
