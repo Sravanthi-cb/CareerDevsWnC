@@ -5,15 +5,12 @@ var todoList = {
     todoText: todoText,
     completed: false
 	});
-
   },
   changeTodo: function(position, todoText){
     this.todos[position].todoText =  todoText;
-  
-},
+ },
   deleteTodo: function(position){
     this.todos.splice(position, 1);
-   
 },
  toggleCompleted: function(position){
   var todo = this.todos[position];
@@ -28,10 +25,6 @@ var todoList = {
 	 completedTodos++;
 	}
   });
-   
-   
-   
-   
 this.todos.forEach(function(todo) {
  // Case 1: If everything true, make everything false;
   if(completedTodos === totalTodos) {
@@ -40,13 +33,8 @@ this.todos.forEach(function(todo) {
   } else {
     todo.completed = true;
   }
-})
-   
-   
-   
-   
-   
- }
+});
+}
 };
 
 
@@ -89,27 +77,21 @@ var view = {
   displayTodos:  function() {
     var todosUl = document.querySelector('ul');	
 	todosUl.innerHTML = '';
-	for(var i = 0; i < todoList.todos.length; i++) {
-	  var todoLi = document.createElement('li');
-	  var todo = todoList.todos[i];
-	  var todoTextWithCompletion = '' ; 
-	  if(todo.completed === true) {
+	
+  todoList.todos.forEach(function(todo, position) {
+   var todoLi = document.createElement('li');
+   var todoTextWithCompletion = '' ;
+   if(todo.completed === true) {
 	    todoTextWithCompletion = '(x) ' + todo.todoText;
-	  }
-	  else {
-	    todoTextWithCompletion = '() ' + todo.todoText;
-	  }	  
-	  
-	  
-	  
-	  
-	  
-	  todoLi.id = i;
+	} else {
+	    todoTextWithCompletion = '( ) ' + todo.todoText;
+	}	
+	
+      todoLi.id = position;
 	  todoLi.textContent = todoTextWithCompletion;
-	  // todoLi.textContent = todoList.todos[i].todoText;
 	  todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);	
-	}	
+  }, this);
   },
   createDeleteButton : function() {
     var deleteButton = document.createElement('button');
